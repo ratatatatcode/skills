@@ -24,6 +24,8 @@ Review the package for missing acceptance criteria, untestable requirements, unc
 
 Expected result: a reviewable package containing the SRS, user stories, traceability matrix, and open questions. Requirements are documented, not treated as approved until the stakeholder or designated owner approves them.
 
+See the [synthetic Product Requirements sample results](../benchmarks/product-requirements/sample-results.md) for an example prompt, artifact tree, requirements, user stories, traceability, quality-gate result, and open questions.
+
 ### Request an optional Word deliverable
 
 When stakeholders need a formatted document, explicitly request Word output and identify the source package and status:

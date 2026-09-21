@@ -1,6 +1,74 @@
 {
     "generatedAt":  "2026-09-21T07:32:09.5839946Z",
     "task":  "product-requirements",
+    "publicSample":  {
+        "status":  "illustrative-synthetic",
+        "approval":  "not evidence of stakeholder approval",
+        "benchmark":  "not a real benchmark",
+        "prompt":  "$product-requirements\n\nCreate a formal requirements package for a mobile appointment-booking app for a community clinic from the supplied stakeholder brief. Separate confirmed facts, proposed decisions, and open questions. Include MoSCoW priorities, functional and non-functional requirements, user stories with testable acceptance criteria, traceability, and a quality-gate review. Keep Markdown canonical under docs/product/ and do not imply stakeholder approval.",
+        "artifactTree":  [
+            "docs/product/product-requirements-document.md",
+            "docs/product/user-stories.md",
+            "docs/product/traceability.md",
+            "docs/product/open-questions.md"
+        ],
+        "requirements":  [
+            {
+                "id":  "GOAL-001",
+                "text":  "Enable patients to request a clinic appointment from a supported mobile device.",
+                "priority":  "Must Have",
+                "verification":  "Goal-to-requirement trace review",
+                "status":  "Proposed"
+            },
+            {
+                "id":  "FR-001",
+                "text":  "The app shall allow an authenticated patient to select a clinic service, choose an available appointment slot, and submit one appointment request.",
+                "priority":  "Must Have",
+                "verification":  "Mobile acceptance test covering valid submission",
+                "status":  "Proposed"
+            },
+            {
+                "id":  "FR-002",
+                "text":  "The app shall show a validation error and preserve entered data when a required service or slot is missing.",
+                "priority":  "Must Have",
+                "verification":  "Negative-path acceptance test",
+                "status":  "Proposed"
+            },
+            {
+                "id":  "NFR-001",
+                "text":  "The appointment request confirmation shall be displayed within 3 seconds after the server acknowledges a successful submission under the supported network profile.",
+                "priority":  "Should Have",
+                "verification":  "Instrumented test on the agreed device/network matrix",
+                "status":  "Proposed"
+            }
+        ],
+        "userStory":  {
+            "id":  "US-001",
+            "title":  "Request an appointment",
+            "actor":  "authenticated patient",
+            "outcome":  "request care without calling the clinic",
+            "links":  ["GOAL-001", "FR-001", "FR-002"],
+            "acceptanceCriteria":  [
+                "Successful submission shows a confirmation with the request identifier and removes the selected slot from the patient's available choices.",
+                "Missing service or slot shows a validation error and preserves other entered selections.",
+                "A slot-conflict rejection explains that the slot is unavailable and allows another selection without duplicating the request."
+            ]
+        },
+        "traceability":  [
+            {"goal": "GOAL-001", "requirement": "FR-001", "story": "US-001", "evidence": "Successful submission and confirmation test", "coverage": "Covered"},
+            {"goal": "GOAL-001", "requirement": "FR-002", "story": "US-001", "evidence": "Missing-field and slot-conflict tests", "coverage": "Covered"},
+            {"goal": "GOAL-001", "requirement": "NFR-001", "story": null, "evidence": "Instrumented performance test", "coverage": "Covered by non-story verification"}
+        ],
+        "qualityGate":  {
+            "result":  "Pass with open decisions",
+            "summary":  "Atomic, prioritized, and verifiable requirements; user-story coverage; traceability; and explicit evidence labels are demonstrated. Stakeholder review and resolution of open decisions remain before approval."
+        },
+        "openQuestions":  [
+            {"id": "OQ-001", "question": "Which clinic services and appointment durations are in the first release?", "owner": "Clinic operations owner", "impact": "Changes the service catalogue and slot rules for FR-001.", "targetDecision": "Before scope approval"},
+            {"id": "OQ-002", "question": "What retention period and deletion process apply to appointment requests?", "owner": "Privacy owner", "impact": "Changes data lifecycle and operational requirements.", "targetDecision": "Before implementation authorization"},
+            {"id": "OQ-003", "question": "Which iOS and Android versions and accessibility baseline are supported?", "owner": "Product and mobile leads", "impact": "Changes test devices, compatibility, and acceptance coverage.", "targetDecision": "Before release planning"}
+        ]
+    },
     "baseline":  {
                      "mode":  "plain",
                      "task":  "product-requirements",
