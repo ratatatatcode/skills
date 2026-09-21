@@ -31,7 +31,7 @@ When stakeholders need a formatted document, explicitly request Word output and 
 ```text
 $product-requirements $docx
 
-Using the current Markdown package in docs/product/, render one combined Word document named Kodo-SRS-Draft.docx.
+Using the current Markdown package in docs/product/, render one combined Word document named Product-SRS-Draft.docx.
 
 Clearly mark the document as Draft and do not imply stakeholder approval. Preserve the Markdown files as the canonical source. Include a title page, document status, revision date, table of contents, consistent headings, tables, and page numbers.
 ```

@@ -10,6 +10,7 @@ See [Skill Evaluation Policy](EVALUATION.md) for evidence labels, comparison req
 
 - [Getting Started](docs/getting-started.md) — safely install, discover, invoke, update, disable, and troubleshoot skills.
 - [Usage Examples](docs/usage-examples.md) — practical prompts and expected results for every repository-owned skill.
+- [Skill Workflow Map](docs/skill-workflow-map.md) — how the skills connect across requirements, implementation, debugging, review, and commits.
 - [Repository-Local Skills](docs/local-skills.md) — create and maintain project-specific skills under `.agents/skills/` without overwriting existing work.
 
 ## Catalog
