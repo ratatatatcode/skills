@@ -1,22 +1,32 @@
 # Usage Examples for Repository-Owned Skills
 
-These examples invoke each skill explicitly so users can see which workflow should apply. Replace example paths and project details with real ones.
+These stories show how a business owner, product team, developer, reviewer, release engineer, or platform architect might use each skill. Replace the sample product names, paths, and commands with the real project details.
+
+---
 
 ## Product Requirements
 
-Use for formal requirements discovery, creation, or auditing before implementation planning.
+Scenario: A business owner has stakeholder notes for a new mobile appointment-booking product. A software lead needs requirements that can be reviewed by the business and verified by delivery teams.
+
+The business owner starts with:
 
 ```text
 $product-requirements
 
-Create a formal SRS for a mobile appointment-booking application from the attached stakeholder notes. Separate confirmed facts, proposals, and open decisions. Include functional and non-functional requirements, MoSCoW priorities, user stories, acceptance criteria, and traceability.
+Create a formal SRS for our mobile appointment-booking application from the attached stakeholder notes. Separate confirmed facts, proposals, and open decisions. Include functional and non-functional requirements, MoSCoW priorities, user stories, acceptance criteria, and traceability. Keep Markdown as the canonical source under docs/product/.
 ```
 
-Expected result: approved deliverables may be written under `docs/product/`, including the master requirements document, user stories, traceability, and open questions. Markdown remains canonical; Word output is optional when a DOCX-capable skill is available and requested.
+The software lead follows up:
+
+```text
+Review the package for missing acceptance criteria, untestable requirements, uncovered goals, and unresolved decisions. Do not invent stakeholder decisions; record gaps as open questions.
+```
+
+Expected result: a reviewable package containing the SRS, user stories, traceability matrix, and open questions. Requirements are documented, not treated as approved until the stakeholder or designated owner approves them.
 
 ### Request an optional Word deliverable
 
-Mention Word or `.docx` explicitly when stakeholders also need a formatted document. Specify whether the package should be combined or split into separate files and whether its status is Draft or Approved.
+When stakeholders need a formatted document, explicitly request Word output and identify the source package and status:
 
 ```text
 $product-requirements $docx
@@ -26,81 +36,125 @@ Using the current Markdown package in docs/product/, render one combined Word do
 Clearly mark the document as Draft and do not imply stakeholder approval. Preserve the Markdown files as the canonical source. Include a title page, document status, revision date, table of contents, consistent headings, tables, and page numbers.
 ```
 
-Expected result: the canonical Markdown package plus one combined Word document. Request “separate DOCX files” or “both combined and separate DOCX files” when that packaging is preferred. If DOCX capability is unavailable, the Markdown package is completed and Word rendering is reported as pending rather than installing another skill without authorization.
+Expected result: the canonical Markdown package plus one combined Word document. Ask for separate DOCX files when each artifact must be shared independently. If DOCX capability is unavailable, complete the Markdown package and report Word rendering as pending.
 
-Do not use it to plan implementation after the requirements are already approved.
+Do not use this skill to plan implementation after requirements are already approved.
+
+---
 
 ## Context-Efficient Workflow
 
-Use for work likely to involve a large repository, lengthy logs, substantial documents or data, repeated browser inspection, or a long investigation.
+Scenario: An API team is investigating duplicate records across a large repository with lengthy logs. The developer wants focused investigation without skipping verification.
+
+The developer starts with:
 
 ```text
 $context-efficient-workflow
 
-Investigate why the API occasionally returns duplicate records. Start with the smallest decision-relevant evidence, keep a compact working summary, and expand the search only when the current evidence cannot determine the next step. Preserve full verification.
+Investigate why the API occasionally returns duplicate records. Begin with the smallest decision-relevant evidence, limit command output, and keep a compact working summary. Expand to callers, database queries, and logs only when the current evidence cannot determine the next step. Preserve full testing and verification.
 ```
 
-Expected result: focused searches and reads, bounded tool output, a compact record of confirmed facts and remaining unknowns, and a complete, verified answer. The skill does not impose a programming language or replace necessary reasoning and testing.
+After the first findings, the developer asks:
 
-Do not use it for simple requests that require no substantial inspection.
+```text
+Summarize the confirmed facts, files inspected, assumptions, remaining unknowns, and next experiment before continuing.
+```
+
+Expected result: bounded searches and reads, a compact state summary, and a complete verified answer. The workflow applies across programming languages and non-programming tasks; it does not replace reasoning or testing.
+
+Do not use it for a simple request that needs no substantial inspection.
+
+---
 
 ## Evidence-First Debugging
 
-Use for a failure, flaky test, build problem, regression, or unexplained behavior.
+Scenario: A developer owns a checkout service whose integration test fails only in CI. They need a diagnosis before changing production code.
+
+The developer asks:
 
 ```text
 $evidence-first-debugging
 
-Investigate why the checkout integration test fails only in CI. Reproduce or isolate the failure, distinguish evidence from assumptions, and do not modify code until the root cause is supported.
+Investigate why the checkout integration test fails only in CI. Reproduce or isolate the failure, inspect the smallest relevant logs and configuration, distinguish evidence from assumptions, and do not modify code until the root cause is supported.
 ```
 
-Expected result: a chat report containing the symptom, reproduction, evidence, root cause or leading hypothesis, confidence, next action, verification, and remaining risks. Files change only when the user also requests a fix.
+After a leading hypothesis appears, they continue:
+
+```text
+Design one minimal experiment that can falsify the leading hypothesis. Report the result, confidence, and any remaining risks.
+```
+
+Expected result: a report covering the symptom, reproduction, evidence, root cause or leading hypothesis, confidence, next action, verification, and remaining risks. Files change only when the user also requests a fix.
+
+---
 
 ## Risk-Focused Code Review
 
-Use to review a diff, commit, branch, pull request, file, or implementation.
+Scenario: A software lead is preparing a payment-service change for release. They want a read-only review focused on user, security, data, and operational risk.
+
+The lead asks:
 
 ```text
 $risk-focused-code-review
 
-Review the changes on this branch against main. Prioritize correctness, authorization, data integrity, compatibility, performance, and missing regression tests. Report only evidence-supported findings.
+Review this branch against main. Prioritize correctness, authorization, data integrity, compatibility, performance, operational failure modes, and missing regression tests. Inspect the complete relevant diff and report only evidence-supported findings.
 ```
 
-Expected result: findings ordered by severity, followed by open questions, verification limits, and a short change summary. The skill does not edit code or post external review comments unless requested.
+The lead then asks:
+
+```text
+For each finding, show the affected path and line, failing condition, impact, evidence, severity, and focused recommendation. Separate open questions from confirmed defects and do not modify the branch.
+```
+
+Expected result: severity-ranked findings, open questions, verification limits, and a concise change summary. The skill does not approve changes, post review comments, or edit files unless explicitly requested.
+
+---
 
 ## Change-Aware Commits
 
-Use to create commit messages or an atomic commit plan from actual Git changes.
+Scenario: A release engineer has changes across documentation and a new skill in one repository. They want an atomic Conventional Commit plan before touching Git history.
+
+The release engineer asks:
 
 ```text
 $change-aware-commits
 
-Inspect every Git repository in this workspace. Produce a separate Conventional Commit plan for each repository and current branch, including staged, unstaged, and relevant untracked changes. Do not stage or commit anything.
+Inspect the current repository and branch. Separate staged, unstaged, and untracked changes, inspect the relevant diffs, and propose the smallest coherent Conventional Commit plan. Do not stage, commit, push, or switch branches.
 ```
 
-Expected result: one or more proposed commits per repository and branch, with messages, file or hunk groups, and rationale. It is not limited to frontend and backend repositories and remains read-only unless Git actions are explicitly requested.
+After reviewing the plan, they explicitly authorize the action:
+
+```text
+Proceed with the proposed commit only. Before committing, show the exact files, branch, and final message; do not include unrelated changes.
+```
+
+Expected result: each repository and branch is reported separately, with commit messages, file or hunk groups, rationale, and any mixed-concern files. The default workflow remains read-only.
+
+---
 
 ## Project Skill Architect
+
+Scenario: A platform architect notices that developers repeatedly perform the same release-verification workflow across several services. They want to decide whether a repository-local skill is justified.
 
 ### Recommend local skills
 
 ```text
 $project-skill-architect
 
-Inspect this project and recommend only the repository-local skills justified by recurring project-specific workflows. Check existing skills first and explain when documentation, AGENTS.md, scripts, tests, or CI would be more appropriate.
+Inspect this project and recommend only repository-local skills justified by recurring workflows. Check existing skills first and explain when documentation, AGENTS.md, scripts, tests, or CI would be more appropriate. Remain read-only.
 ```
 
-Expected result: a read-only, prioritized portfolio with project evidence, triggers, overlap checks, security considerations, ownership, and rejected candidates.
+Expected result: a prioritized portfolio with project evidence, triggers, overlap checks, security considerations, ownership, and rejected candidates.
 
 ### Create or iterate a local skill
 
 ```text
 $project-skill-architect
 
-Create or update a repository-local skill for our release verification workflow. Inspect every existing skill under .agents/skills first, reuse relevant project commands, and do not overwrite or duplicate an existing capability.
+Create or update a repository-local skill for release verification. Inspect every existing skill under .agents/skills first, reuse relevant project commands, and do not overwrite or duplicate an existing capability. Keep the skill inside .agents/skills/<skill-name>/.
 ```
 
-Expected result: the skill is created or minimally updated inside `.agents/skills/<skill-name>/`. Existing paths, names, triggers, supporting resources, and invocation policies are inspected before changes. Unresolved collisions are reported instead of overwritten.
+Expected result: a minimal skill with justified instructions, metadata, and supporting resources only when needed. Existing paths, names, triggers, and invocation policies are preserved unless a change is approved.
 
 ### Audit local skills
 
@@ -110,4 +164,4 @@ $project-skill-architect
 Audit all skills under .agents/skills for duplicate names, overlapping triggers, obsolete project details, unsafe behavior, broken references, and unnecessary context. Do not modify them; provide the smallest improvement plan.
 ```
 
-Expected result: evidence-based findings and keep, refine, consolidate, replace, or retire recommendations. Audit mode is read-only.
+Expected result: evidence-based keep, refine, consolidate, replace, or retire recommendations.
