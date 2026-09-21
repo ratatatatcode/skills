@@ -6,6 +6,12 @@ A lightweight catalog for discovering useful Codex skills. Community skills are 
 
 See [Skill Evaluation Policy](EVALUATION.md) for evidence labels, comparison requirements, and ranking rules.
 
+## Start Here
+
+- [Getting Started](docs/getting-started.md) — safely install, discover, invoke, update, disable, and troubleshoot skills.
+- [Usage Examples](docs/usage-examples.md) — practical prompts and expected results for every repository-owned skill.
+- [Repository-Local Skills](docs/local-skills.md) — create and maintain project-specific skills under `.agents/skills/` without overwriting existing work.
+
 ## Catalog
 
 ### Security

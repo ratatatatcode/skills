@@ -17,6 +17,8 @@ Determine the requested mode from the user's wording:
 
 Recommendation and audit are read-only. Creation authorizes only the local skill files and catalog updates needed for the request; it does not authorize installation, commits, pushes, hooks, dependency installation, or external publication.
 
+Repository-local means the skill is stored inside the target project at `.agents/skills/<skill-name>/`. Do not redirect it to a user-global skills directory or this catalog repository unless the user explicitly requests that different scope.
+
 ## Understand the project
 
 Inspect the smallest useful evidence set:
@@ -27,7 +29,9 @@ Inspect the smallest useful evidence set:
 4. Framework, language, architecture, configuration, and dependency manifests.
 5. Repeated procedures in issues, templates, scripts, or documentation.
 6. Domain-specific rules whose omission could cause defects, security problems, or rework.
-7. Existing local and global skills that may already cover the need.
+7. Every existing repository skill under `.agents/skills/`, plus relevant user or system skills that may already cover the need.
+
+Inventory repository-local skill names, descriptions, locations, and supporting resources before recommending or creating anything. Read the full package of an existing skill when it overlaps the requested capability or may need updating; do not load unrelated skill bodies.
 
 For a workspace containing multiple repositories, evaluate each repository independently and identify genuinely shared workflows separately. Do not assume a frontend/backend split or stop after two repositories.
 
