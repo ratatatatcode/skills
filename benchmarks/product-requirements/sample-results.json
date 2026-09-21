@@ -1,0 +1,49 @@
+{
+    "generatedAt":  "2026-09-21T07:32:09.5839946Z",
+    "task":  "product-requirements",
+    "baseline":  {
+                     "mode":  "plain",
+                     "task":  "product-requirements",
+                     "toolCalls":  18,
+                     "fileReads":  24,
+                     "uniqueFiles":  17,
+                     "repeatedFileReads":  7,
+                     "contextChars":  86100,
+                     "repeatedChars":  25300,
+                     "estimatedTokens":  21525,
+                     "durationMs":  612000,
+                     "completenessScore":  4.5,
+                     "correctnessScore":  4.5,
+                     "missedRequirements":  1,
+                     "regressions":  0,
+                     "verified":  true,
+                     "notes":  "The workflow scanned the full project, loaded all product-profile references, reread the stakeholder notes while drafting, and reread the complete package during quality review."
+                 },
+    "candidate":  {
+                      "mode":  "context-efficient",
+                      "task":  "product-requirements",
+                      "toolCalls":  8,
+                      "fileReads":  13,
+                      "uniqueFiles":  8,
+                      "repeatedFileReads":  5,
+                      "contextChars":  34400,
+                      "repeatedChars":  4700,
+                      "estimatedTokens":  8600,
+                      "durationMs":  428000,
+                      "completenessScore":  4.5,
+                      "correctnessScore":  4.5,
+                      "missedRequirements":  1,
+                      "regressions":  0,
+                      "verified":  true,
+                      "notes":  "The workflow inspected the mobile profile, quality gate, template, and stakeholder notes first; it expanded only to the required package files and retained a compact evidence summary."
+                  },
+    "comparison":  {
+                       "toolCallsReductionPercent":  55.6,
+                       "fileReadsReductionPercent":  45.8,
+                       "contextCharsReductionPercent":  60,
+                       "estimatedTokensReductionPercent":  60,
+                       "repeatedCharsReductionPercent":  81.4,
+                       "verificationPreserved":  true
+                   },
+    "method":  "Estimated tokens use observed input/output characters divided by four. This is a proxy for context volume, not provider billing or exact tokenizer usage."
+}

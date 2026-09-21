@@ -1,0 +1,13 @@
+{
+  "task": "risk-focused-code-review",
+  "mode": "plain",
+  "durationMs": 467000,
+  "quality": {"completenessScore": 4.0, "correctnessScore": 4.0, "missedRequirements": 0, "regressions": 0},
+  "verified": true,
+  "notes": "The workflow loaded the full branch diff and broad repository context, including unrelated history and documentation, before reporting findings.",
+  "steps": [
+    {"name":"repository scan","toolCalls":5,"inputChars":2100,"outputChars":18000,"repeatedChars":0,"files":["README.md","src/","tests/","config/","migrations/","docs/","package.json"]},
+    {"name":"diff review","toolCalls":6,"inputChars":4600,"outputChars":26400,"repeatedChars":9800,"files":["git-diff.patch","src/payment.js","src/auth.js","tests/payment.test.js","migrations/2026.sql"]},
+    {"name":"risk summary","toolCalls":5,"inputChars":6700,"outputChars":16900,"repeatedChars":12200,"files":["git-diff.patch","src/payment.js","src/auth.js","tests/payment.test.js"]}
+  ]
+}

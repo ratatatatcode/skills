@@ -1,0 +1,13 @@
+{
+  "task": "risk-focused-code-review",
+  "mode": "context-efficient",
+  "durationMs": 319000,
+  "quality": {"completenessScore": 4.0, "correctnessScore": 4.0, "missedRequirements": 0, "regressions": 0},
+  "verified": true,
+  "notes": "The workflow inspected the complete relevant diff, traced only affected callers and tests, and preserved the read-only review boundary.",
+  "steps": [
+    {"name":"scope intake","toolCalls":2,"inputChars":1900,"outputChars":7600,"repeatedChars":0,"files":["git-diff.patch","README.md"]},
+    {"name":"affected behavior","toolCalls":4,"inputChars":3800,"outputChars":10900,"repeatedChars":1800,"files":["src/payment.js","src/auth.js","tests/payment.test.js","migrations/2026.sql"]},
+    {"name":"risk summary","toolCalls":2,"inputChars":2700,"outputChars":5800,"repeatedChars":1100,"files":["src/payment.js","src/auth.js","tests/payment.test.js"]}
+  ]
+}

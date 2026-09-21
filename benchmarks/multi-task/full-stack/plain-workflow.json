@@ -1,0 +1,13 @@
+{
+  "task": "full-stack-implementation",
+  "mode": "plain",
+  "durationMs": 1180000,
+  "quality": {"completenessScore": 4.0, "correctnessScore": 3.5, "missedRequirements": 2, "regressions": 1},
+  "verified": true,
+  "notes": "The workflow scanned frontend, backend, database, and generated files broadly, then repeated reads while wiring the feature together.",
+  "steps": [
+    {"name":"repository discovery","toolCalls":9,"inputChars":4200,"outputChars":31200,"repeatedChars":0,"files":["package.json","src/","api/","db/","tests/","config/","generated/","README.md"]},
+    {"name":"implementation","toolCalls":12,"inputChars":8400,"outputChars":46800,"repeatedChars":21400,"files":["src/components/Booking.tsx","api/bookings.ts","db/schema.sql","api/auth.ts","tests/bookings.test.ts"]},
+    {"name":"verification","toolCalls":9,"inputChars":11200,"outputChars":34200,"repeatedChars":27900,"files":["src/components/Booking.tsx","api/bookings.ts","db/schema.sql","tests/bookings.test.ts","config/ci.yml"]}
+  ]
+}

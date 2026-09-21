@@ -1,0 +1,13 @@
+{
+  "task": "evidence-first-debugging",
+  "mode": "plain",
+  "durationMs": 534000,
+  "quality": {"completenessScore": 4.0, "correctnessScore": 4.0, "missedRequirements": 0, "regressions": 0},
+  "verified": true,
+  "notes": "The workflow reread the full repository tree, broad logs, environment files, and unrelated test output before isolating the CI failure.",
+  "steps": [
+    {"name":"broad discovery","toolCalls":6,"inputChars":2400,"outputChars":22000,"repeatedChars":0,"files":["README.md","src/","tests/","config/",".env.example","logs/","ci/","package.json"]},
+    {"name":"log and config review","toolCalls":7,"inputChars":5200,"outputChars":27800,"repeatedChars":12400,"files":["logs/ci.log","logs/app.log","config/ci.yml","config/test.yml","tests/checkout.test.js","src/checkout.js"]},
+    {"name":"verification","toolCalls":7,"inputChars":7800,"outputChars":21400,"repeatedChars":16100,"files":["logs/ci.log","tests/checkout.test.js","src/checkout.js","package.json","config/ci.yml"]}
+  ]
+}

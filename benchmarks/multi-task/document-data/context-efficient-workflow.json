@@ -1,0 +1,13 @@
+{
+  "task": "large-document-data-analysis",
+  "mode": "context-efficient",
+  "durationMs": 486000,
+  "quality": {"completenessScore": 4.0, "correctnessScore": 4.0, "missedRequirements": 0, "regressions": 0},
+  "verified": true,
+  "notes": "The workflow inspected file sizes and structure first, then read only the relevant sheets, headings, rows, and policy sections.",
+  "steps": [
+    {"name":"structure inspection","toolCalls":3,"inputChars":2100,"outputChars":7600,"repeatedChars":0,"files":["brief.docx","sales.xlsx","export.csv","policy.pdf"]},
+    {"name":"targeted extraction","toolCalls":4,"inputChars":4200,"outputChars":13800,"repeatedChars":2600,"files":["brief.docx","sales.xlsx","export.csv","policy.pdf"]},
+    {"name":"quality check","toolCalls":3,"inputChars":5200,"outputChars":8200,"repeatedChars":2100,"files":["sales.xlsx","export.csv","policy.pdf","summary.md"]}
+  ]
+}

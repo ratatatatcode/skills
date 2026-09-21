@@ -1,0 +1,34 @@
+{
+  "task": "product-requirements",
+  "mode": "context-efficient",
+  "durationMs": 428000,
+  "quality": {"completenessScore": 4.5, "correctnessScore": 4.5, "missedRequirements": 1, "regressions": 0},
+  "verified": true,
+  "notes": "The workflow inspected the mobile profile, quality gate, template, and stakeholder notes first; it expanded only to the required package files and retained a compact evidence summary.",
+  "steps": [
+    {
+      "name": "targeted intake",
+      "toolCalls": 3,
+      "inputChars": 1800,
+      "outputChars": 7600,
+      "repeatedChars": 0,
+      "files": ["stakeholder-notes.md", "references/mobile.md", "references/quality-gate.md", "assets/formal-product-documentation-template.md"]
+    },
+    {
+      "name": "draft package",
+      "toolCalls": 3,
+      "inputChars": 3900,
+      "outputChars": 9200,
+      "repeatedChars": 1800,
+      "files": ["product-requirements-document.md", "user-stories.md", "traceability.md", "open-questions.md"]
+    },
+    {
+      "name": "focused quality gate",
+      "toolCalls": 2,
+      "inputChars": 4300,
+      "outputChars": 7600,
+      "repeatedChars": 2900,
+      "files": ["product-requirements-document.md", "user-stories.md", "traceability.md", "open-questions.md", "references/quality-gate.md"]
+    }
+  ]
+}

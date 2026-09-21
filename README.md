@@ -6,11 +6,18 @@ A lightweight catalog for discovering useful Codex skills. Community skills are 
 
 See [Skill Evaluation Policy](EVALUATION.md) for evidence labels, comparison requirements, and ranking rules.
 
+## Licensing and ownership
+
+Repository-owned components identify their own license. The `context-efficient-workflow` skill is MIT-licensed. This catalog also references third-party or source-available skills, so the repository as a whole should not be described as uniformly open source; review each entry's license before reuse or redistribution.
+
 ## Start Here
 
 - [Getting Started](docs/getting-started.md) — safely install, discover, invoke, update, disable, and troubleshoot skills.
 - [Usage Examples](docs/usage-examples.md) — practical prompts and expected results for every repository-owned skill.
 - [Skill Workflow Map](docs/skill-workflow-map.md) — how the skills connect across requirements, implementation, debugging, review, and commits.
+- [Context Workflow Benchmark](docs/benchmark-context-workflow.md) — compare recorded plain and context-efficient traces with token estimates and verification checks.
+- [Real Benchmark Runbook](docs/real-benchmark-runbook.md) — run a fair plain-versus-context-efficient comparison and capture real traces.
+- [Extended Benchmark Result](benchmarks/multi-task/six-task-results.md) — controlled comparison across requirements, debugging, review, full-stack, document/data, and browser tasks.
 - [Repository-Local Skills](docs/local-skills.md) — create and maintain project-specific skills under `.agents/skills/` without overwriting existing work.
 
 ## Catalog

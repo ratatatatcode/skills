@@ -1,0 +1,24 @@
+{
+  "task": "product-requirements",
+  "run": 1,
+  "mode": "plain-or-context-efficient",
+  "durationMs": 0,
+  "quality": {
+    "completenessScore": 0,
+    "correctnessScore": 0,
+    "missedRequirements": 0,
+    "regressions": 0
+  },
+  "verified": false,
+  "notes": "Replace every placeholder with observations from the real run.",
+  "steps": [
+    {
+      "name": "phase name",
+      "toolCalls": 0,
+      "inputChars": 0,
+      "outputChars": 0,
+      "repeatedChars": 0,
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "task": "product-requirements",
+  "mode": "plain",
+  "durationMs": 612000,
+  "quality": {"completenessScore": 4.5, "correctnessScore": 4.5, "missedRequirements": 1, "regressions": 0},
+  "verified": true,
+  "notes": "The workflow scanned the full project, loaded all product-profile references, reread the stakeholder notes while drafting, and reread the complete package during quality review.",
+  "steps": [
+    {
+      "name": "broad discovery",
+      "toolCalls": 5,
+      "inputChars": 1800,
+      "outputChars": 19500,
+      "repeatedChars": 0,
+      "files": ["README.md", "package.json", "src/", "docs/", "stakeholder-notes.md", "screenshots/", "tickets/", "policies/"]
+    },
+    {
+      "name": "load all references",
+      "toolCalls": 4,
+      "inputChars": 1400,
+      "outputChars": 16800,
+      "repeatedChars": 0,
+      "files": ["references/web.md", "references/mobile.md", "references/business-operations.md", "references/quality-gate.md", "assets/formal-product-documentation-template.md"]
+    },
+    {
+      "name": "draft package",
+      "toolCalls": 4,
+      "inputChars": 6200,
+      "outputChars": 14200,
+      "repeatedChars": 9200,
+      "files": ["stakeholder-notes.md", "references/mobile.md", "product-requirements-document.md", "user-stories.md", "traceability.md", "open-questions.md"]
+    },
+    {
+      "name": "review package",
+      "toolCalls": 5,
+      "inputChars": 8400,
+      "outputChars": 17800,
+      "repeatedChars": 16100,
+      "files": ["product-requirements-document.md", "user-stories.md", "traceability.md", "open-questions.md", "references/quality-gate.md"]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "task": "browser-ui-debugging",
+  "mode": "context-efficient",
+  "durationMs": 392000,
+  "quality": {"completenessScore": 4.0, "correctnessScore": 4.0, "missedRequirements": 0, "regressions": 0},
+  "verified": true,
+  "notes": "The workflow captured only the relevant form state, console error, network request, and changed element state after each interaction.",
+  "steps": [
+    {"name":"reproduction","toolCalls":3,"inputChars":1900,"outputChars":7200,"repeatedChars":0,"files":["page-state.json","console.log","network.har"]},
+    {"name":"focused inspection","toolCalls":4,"inputChars":3600,"outputChars":10900,"repeatedChars":1900,"files":["console.log","network.har","form.tsx"]},
+    {"name":"verification","toolCalls":3,"inputChars":4200,"outputChars":7600,"repeatedChars":1700,"files":["screenshot-03.png","console.log","form.test.ts"]}
+  ]
+}

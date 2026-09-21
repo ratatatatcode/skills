@@ -1,0 +1,4 @@
+# Generated benchmark outputs; keep source traces and selected sample snapshots.
+benchmarks/**/results.md
+benchmarks/**/results.json
+benchmarks/multi-task/three-task-results.md

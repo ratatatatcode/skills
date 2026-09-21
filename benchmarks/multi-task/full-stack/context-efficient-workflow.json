@@ -1,0 +1,13 @@
+{
+  "task": "full-stack-implementation",
+  "mode": "context-efficient",
+  "durationMs": 821000,
+  "quality": {"completenessScore": 4.0, "correctnessScore": 3.5, "missedRequirements": 2, "regressions": 1},
+  "verified": true,
+  "notes": "The workflow mapped the feature entry point and contract first, then inspected only the affected frontend, API, schema, and tests.",
+  "steps": [
+    {"name":"targeted map","toolCalls":4,"inputChars":3000,"outputChars":11200,"repeatedChars":0,"files":["package.json","src/routes.ts","api/routes.ts","db/schema.sql"]},
+    {"name":"implementation","toolCalls":7,"inputChars":6200,"outputChars":23400,"repeatedChars":5200,"files":["src/components/Booking.tsx","api/bookings.ts","db/schema.sql","tests/bookings.test.ts"]},
+    {"name":"verification","toolCalls":5,"inputChars":6900,"outputChars":15800,"repeatedChars":4300,"files":["tests/bookings.test.ts","api/bookings.ts","src/components/Booking.tsx","config/ci.yml"]}
+  ]
+}

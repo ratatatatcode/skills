@@ -1,0 +1,13 @@
+{
+  "task": "large-document-data-analysis",
+  "mode": "plain",
+  "durationMs": 702000,
+  "quality": {"completenessScore": 4.0, "correctnessScore": 4.0, "missedRequirements": 0, "regressions": 0},
+  "verified": true,
+  "notes": "The workflow loaded full exports and repeated large sections while extracting the requested business summary.",
+  "steps": [
+    {"name":"document discovery","toolCalls":5,"inputChars":2500,"outputChars":26400,"repeatedChars":0,"files":["brief.docx","sales.xlsx","export.csv","policy.pdf","README.md"]},
+    {"name":"extraction","toolCalls":8,"inputChars":6100,"outputChars":39200,"repeatedChars":17600,"files":["brief.docx","sales.xlsx","export.csv","policy.pdf"]},
+    {"name":"quality check","toolCalls":6,"inputChars":8200,"outputChars":20800,"repeatedChars":15800,"files":["sales.xlsx","export.csv","policy.pdf","summary.md"]}
+  ]
+}
