@@ -93,16 +93,15 @@ Documents an existing repository from verifiable evidence. It produces structure
 
 ### Token and Context Efficiency
 
-#### Token Efficient Workflow
+#### Context-Efficient Workflow
 
-Guidance for reducing unnecessary context and token usage during agent workflows.
+A repository-owned, language-neutral workflow for keeping large or long-running agent tasks focused. It narrows evidence collection, controls tool output, preserves compact working state, and explicitly protects correctness and verification.
 
-- Evidence: **No public comparative evaluation found**
-- [Source and documentation](https://github.com/luziyezz/codex-skills/tree/main/token-efficient-workflow)
+- [Source and documentation](skills/context-efficient-workflow/SKILL.md)
 - Install:
 
   ```text
-  $skill-installer install https://github.com/luziyezz/codex-skills/tree/main/token-efficient-workflow
+  $skill-installer install https://github.com/ratatatatcode/skills/tree/main/skills/context-efficient-workflow
   ```
 
 ---

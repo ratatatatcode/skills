@@ -1,0 +1,4 @@
+interface:
+  display_name: "Context-Efficient Workflow"
+  short_description: "Keep context-heavy work focused and verifiable"
+  default_prompt: "Use $context-efficient-workflow to complete this task with focused evidence and compact context."

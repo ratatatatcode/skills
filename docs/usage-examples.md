@@ -14,7 +14,35 @@ Create a formal SRS for a mobile appointment-booking application from the attach
 
 Expected result: approved deliverables may be written under `docs/product/`, including the master requirements document, user stories, traceability, and open questions. Markdown remains canonical; Word output is optional when a DOCX-capable skill is available and requested.
 
+### Request an optional Word deliverable
+
+Mention Word or `.docx` explicitly when stakeholders also need a formatted document. Specify whether the package should be combined or split into separate files and whether its status is Draft or Approved.
+
+```text
+$product-requirements $docx
+
+Using the current Markdown package in docs/product/, render one combined Word document named Kodo-SRS-Draft.docx.
+
+Clearly mark the document as Draft and do not imply stakeholder approval. Preserve the Markdown files as the canonical source. Include a title page, document status, revision date, table of contents, consistent headings, tables, and page numbers.
+```
+
+Expected result: the canonical Markdown package plus one combined Word document. Request “separate DOCX files” or “both combined and separate DOCX files” when that packaging is preferred. If DOCX capability is unavailable, the Markdown package is completed and Word rendering is reported as pending rather than installing another skill without authorization.
+
 Do not use it to plan implementation after the requirements are already approved.
+
+## Context-Efficient Workflow
+
+Use for work likely to involve a large repository, lengthy logs, substantial documents or data, repeated browser inspection, or a long investigation.
+
+```text
+$context-efficient-workflow
+
+Investigate why the API occasionally returns duplicate records. Start with the smallest decision-relevant evidence, keep a compact working summary, and expand the search only when the current evidence cannot determine the next step. Preserve full verification.
+```
+
+Expected result: focused searches and reads, bounded tool output, a compact record of confirmed facts and remaining unknowns, and a complete, verified answer. The skill does not impose a programming language or replace necessary reasoning and testing.
+
+Do not use it for simple requests that require no substantial inspection.
 
 ## Evidence-First Debugging
 
