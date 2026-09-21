@@ -98,6 +98,7 @@ Documents an existing repository from verifiable evidence. It produces structure
 
 A repository-owned, language-neutral workflow for keeping large or long-running agent tasks focused. It narrows evidence collection, controls tool output, preserves compact working state, and explicitly protects correctness and verification.
 
+- License: MIT.
 - [Source and documentation](skills/context-efficient-workflow/SKILL.md)
 - Install:
 

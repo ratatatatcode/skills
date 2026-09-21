@@ -1,6 +1,7 @@
 ---
 name: context-efficient-workflow
 description: Keep context-heavy agent work focused by narrowing evidence, controlling tool output, and maintaining compact state across code, debugging, research, browser, and document tasks. Use when a task may involve large repositories, files, logs, command results, or a long-running investigation; do not invoke for simple requests that need no substantial inspection.
+license: MIT
 ---
 
 # Context-Efficient Workflow
