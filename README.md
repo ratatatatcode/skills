@@ -4,7 +4,37 @@ A lightweight catalog for discovering useful Codex skills. Community skills are 
 
 > Review third-party skills before installing or running them. A listing here is not a security endorsement.
 
+See [Skill Evaluation Policy](EVALUATION.md) for evidence labels, comparison requirements, and ranking rules.
+
 ## Catalog
+
+### Security
+
+#### Skill Security Review
+
+Reviews agent skills for prompt injection, unsafe scripts, lifecycle hooks, credential access, data exfiltration, and other installation risks. Use this before installing unfamiliar third-party skills.
+
+- Evidence: **No public comparative evaluation found**
+- [Source and documentation](https://github.com/garymike/skills/tree/main/skills/skill-security-review)
+- Install:
+
+  ```text
+  $skill-installer install https://github.com/garymike/skills/tree/main/skills/skill-security-review
+  ```
+
+#### Propose Security Hardening
+
+Turns existing security findings into architectural hardening proposals. This is for improving an application after findings are available, not for reviewing whether a skill is safe to install.
+
+- Evidence: **No public comparative evaluation found**
+- [Source and documentation](https://github.com/openai/plugins/tree/main/plugins/codex-security/skills/propose-security-hardening)
+- Install:
+
+  ```text
+  $skill-installer install https://github.com/openai/plugins/tree/main/plugins/codex-security/skills/propose-security-hardening
+  ```
+
+---
 
 ### Product Documentation
 
@@ -31,6 +61,7 @@ Markdown remains the canonical source. The skill can optionally hand approved co
 
 Creates, reads, edits, and formats Microsoft Word `.docx` documents. Use it as an optional renderer for an approved Product Requirements package, not as the requirements-analysis workflow itself.
 
+- Evidence: **No public comparative evaluation found**
 - [Upstream source and documentation](https://github.com/anthropics/skills/tree/main/skills/docx)
 - License: source-available/proprietary; review the upstream license before installation or redistribution.
 - Install:
@@ -43,6 +74,7 @@ Creates, reads, edits, and formats Microsoft Word `.docx` documents. Use it as a
 
 Documents an existing repository from verifiable evidence. It produces structured stack, project structure, architecture, conventions, integrations, testing, and technical-concern documents without inventing unsupported details.
 
+- Evidence: **No public comparative evaluation found**
 - [Upstream source and documentation](https://github.com/github/awesome-copilot/tree/main/skills/acquire-codebase-knowledge)
 - Requirements: Python 3.8+ and Git; the skill includes a repository-scanning script, so review it before execution.
 - Install:
@@ -51,29 +83,7 @@ Documents an existing repository from verifiable evidence. It produces structure
   $skill-installer install https://github.com/github/awesome-copilot/tree/main/skills/acquire-codebase-knowledge
   ```
 
-### Security
-
-#### Skill Security Review
-
-Reviews agent skills for prompt injection, unsafe scripts, lifecycle hooks, credential access, data exfiltration, and other installation risks. Use this before installing unfamiliar third-party skills.
-
-- [Source and documentation](https://github.com/garymike/skills/tree/main/skills/skill-security-review)
-- Install:
-
-  ```text
-  $skill-installer install https://github.com/garymike/skills/tree/main/skills/skill-security-review
-  ```
-
-#### Propose Security Hardening
-
-Turns existing security findings into architectural hardening proposals. This is for improving an application after findings are available, not for reviewing whether a skill is safe to install.
-
-- [Source and documentation](https://github.com/openai/plugins/tree/main/plugins/codex-security/skills/propose-security-hardening)
-- Install:
-
-  ```text
-  $skill-installer install https://github.com/openai/plugins/tree/main/plugins/codex-security/skills/propose-security-hardening
-  ```
+---
 
 ### Token and Context Efficiency
 
@@ -81,6 +91,7 @@ Turns existing security findings into architectural hardening proposals. This is
 
 Guidance for reducing unnecessary context and token usage during agent workflows.
 
+- Evidence: **No public comparative evaluation found**
 - [Source and documentation](https://github.com/luziyezz/codex-skills/tree/main/token-efficient-workflow)
 - Install:
 
@@ -88,12 +99,15 @@ Guidance for reducing unnecessary context and token usage during agent workflows
   $skill-installer install https://github.com/luziyezz/codex-skills/tree/main/token-efficient-workflow
   ```
 
+---
+
 ### Planning and Coding
 
 #### Planning and Task Breakdown
 
 Helps break development work into clear, executable tasks.
 
+- Evidence: **No public comparative evaluation found**
 - [Source and documentation](https://github.com/QMahyar/skills/tree/main/skills/planning-and-task-breakdown)
 - Install:
 
@@ -105,6 +119,7 @@ Helps break development work into clear, executable tasks.
 
 Uses the red-green-refactor cycle when implementing behavior or fixing defects: first reproduce the requirement or defect with a failing test, then make the smallest implementation pass, and finally improve the code while keeping tests green.
 
+- Evidence: **No public comparative evaluation found**
 - [Upstream source and documentation](https://github.com/cloudflare/computer/tree/main/.agents/skills/test-driven-development)
 - License: MIT.
 - Install:
@@ -113,71 +128,83 @@ Uses the red-green-refactor cycle when implementing behavior or fixing defects: 
   $skill-installer install https://github.com/cloudflare/computer/tree/main/.agents/skills/test-driven-development
   ```
 
-#### Systematic Debugging
+#### Evidence-First Debugging
 
-Provides a structured workflow for diagnosing software defects.
+An original workflow for diagnosing failures through reproducible evidence, falsifiable hypotheses, and one-variable experiments. It starts with read-only investigation and prohibits destructive cleanup as a default debugging step.
 
-- [Source and documentation](https://github.com/magnus919/agent-skills/tree/main/systematic-debugging)
+- [Source and documentation](skills/evidence-first-debugging/SKILL.md)
 - Install:
 
   ```text
-  $skill-installer install https://github.com/magnus919/agent-skills/tree/main/systematic-debugging
+  $skill-installer install https://github.com/ratatatatcode/skills/tree/main/skills/evidence-first-debugging
   ```
 
-#### Code Review
+#### Risk-Focused Code Review
 
-OpenAI's workflow for reviewing code changes.
+An original, standalone review workflow for correctness, regressions, security, data integrity, performance, compatibility, and missing tests. Findings require concrete evidence, and review remains read-only unless further action is requested.
 
-- [Source and documentation](https://github.com/openai/codex/tree/main/.codex/skills/code-review)
+- [Source and documentation](skills/risk-focused-code-review/SKILL.md)
 - Install:
 
   ```text
-  $skill-installer install https://github.com/openai/codex/tree/main/.codex/skills/code-review
+  $skill-installer install https://github.com/ratatatatcode/skills/tree/main/skills/risk-focused-code-review
   ```
+
+---
+
+### Skill Design
+
+#### Project Skill Architect
+
+An original workflow for inspecting a project and recommending the smallest useful portfolio of repository-local skills. It distinguishes skills from project documentation, agent instructions, scripts, CI, and one-off prompts; supports any number of repositories; and applies security and maintenance gates before creating an approved skill.
+
+- [Source and documentation](skills/project-skill-architect/SKILL.md)
+- Install:
+
+  ```text
+  $skill-installer install https://github.com/ratatatatcode/skills/tree/main/skills/project-skill-architect
+  ```
+
+---
 
 ### Git Workflow
 
-#### Conventional Commits
+#### Change-Aware Commits
 
-Generates Conventional Commit messages from the current changes without committing automatically.
+An original workflow for creating Conventional Commit messages and atomic commit plans from actual changes. It covers every in-scope repository and branch—one, two, or many—and is not limited to frontend/backend projects. It does not stage, commit, switch branches, or push unless explicitly requested.
 
-- [Source and documentation](https://github.com/falcondev-oss/skills/tree/main/skills/conventional-commits)
+- [Source and documentation](skills/change-aware-commits/SKILL.md)
 - Install:
 
   ```text
-  $skill-installer install https://github.com/falcondev-oss/skills/tree/main/skills/conventional-commits
+  $skill-installer install https://github.com/ratatatatcode/skills/tree/main/skills/change-aware-commits
   ```
 
-Example request after installation:
-
-```text
-Review the current git diff.
-Separate frontend and backend changes.
-
-Return:
-Frontend:
-<commit>
-
-Backend:
-<commit>
-
-Use Conventional Commits.
-Do not commit automatically.
-```
+---
 
 ## Installing a Skill
 
-Copy the install command for the skill you want into Codex. The built-in `skill-installer` downloads it directly from the linked upstream GitHub repository. Restart or begin a new Codex session after installation if the skill is not immediately available.
+Use this security-first process for every unfamiliar skill:
 
-Always inspect the repository owner, requested permissions, bundled scripts, hooks, and dependency lifecycle commands before using an unfamiliar skill.
+1. **Verify the source.** Confirm the repository owner, exact skill path, license, recent changes, and expected purpose.
+2. **Audit before installation.** Inspect `SKILL.md` and every bundled script, executable, dependency manifest, test file, hook, and lifecycle command. Use **Skill Security Review** to assess prompt injection, unsafe commands, credential access, data exfiltration, external communication, and developer-execution risks.
+3. **Review permissions and actions.** Reject unexpected filesystem access, destructive commands, background processes, network calls, credential handling, telemetry, or instructions that bypass user approval.
+4. **Install only the reviewed revision.** Copy the catalog's install command into Codex. The built-in `skill-installer` downloads the selected skill directory from its GitHub repository.
+5. **Verify after installation.** Confirm the installed files match what was reviewed, then restart or begin a new Codex session if the skill is not immediately available.
+6. **Re-audit updates.** Treat a changed upstream revision as new code and review it again before use.
+
+Security review reduces risk but cannot guarantee that a skill is harmless. Prefer repository-local, pinned, and minimal skills when practical.
+
+---
 
 ## Inclusion Principles
 
-A catalog entry should have:
+A third-party catalog entry must have:
 
-- A public, stable upstream source.
+- A public upstream source and identifiable license.
 - A clear purpose and activation boundary.
 - A direct installation command targeting the upstream skill directory.
+- An evidence label defined in [Skill Evaluation Policy](EVALUATION.md).
 - No copied third-party skill implementation in this repository.
 
-An original skill maintained in this repository should additionally have a narrow purpose, explicit ownership, progressive disclosure, and a security review before being described as stable.
+An original skill maintained here must also have a narrow purpose, explicit ownership, progressive disclosure where useful, validated local links and metadata, and a security review before being described as stable.

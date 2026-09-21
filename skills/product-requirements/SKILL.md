@@ -1,6 +1,6 @@
 ---
 name: product-requirements
-description: Create or audit a complete product documentation package from an idea, brief, existing system, or stakeholder notes. Use for software requirements, PRDs, business requirements, user stories, acceptance criteria, traceability, scope validation, and Web, Mobile, or Business Operations projects. Do not use for implementation planning when requirements are already approved.
+description: Create or audit formal product requirements, PRDs, SRS documents, user stories, acceptance criteria, and traceability for Web, Mobile, or Business Operations projects. Do not use for implementation planning after requirements are approved.
 ---
 
 # Product Requirements
