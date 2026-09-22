@@ -23,6 +23,17 @@ Keep the smallest useful context while preserving scope and correctness. Route t
 6. If a check fails, stop compressing context. Investigate with focused evidence, fix or explicitly leave the failure unresolved, then rerun the check.
 7. Reconcile changed files against the checklist. State commands actually run, results, and unknowns in the final response.
 
+## Execution reliability
+
+For multi-file implementation tasks, treat implementation and verification as separate gates:
+
+1. Establish the smallest runnable or statically checkable baseline before broad edits. If the required runtime or dependency manager is unavailable, record that as a gating fact and use only an explicitly labeled fallback verifier.
+2. Make changes in small vertical slices. Keep each patch to one logical operation per file; do not combine delete/add/update operations for the same file in one patch.
+3. After a patch failure, stop the retry loop. Read the current file, identify whether another change already landed, then apply one fresh narrow patch. After two failures on the same target, switch to a smaller edit strategy or leave the item unresolved with evidence.
+4. Run the external or acceptance check after implementation, not just the agent-authored tests. Capture pass count, failed checks, exact command, and whether the check was runtime or static.
+5. Do not claim completion when the implementation, verifier, or final report is missing. Use one of these explicit states: `verified`, `partially verified`, `blocked by environment`, or `failed`.
+6. Always leave a concise final report containing files changed, checks actually run, exact results, unresolved failures, and runtime/tooling limitations. If execution is interrupted, preserve the partial artifacts and report the interruption instead of presenting a normal success result.
+
 ## Evidence controls
 
 - Prefer file names, headings, schemas, targeted searches, and bounded excerpts before full artifacts.
