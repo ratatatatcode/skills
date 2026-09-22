@@ -1,71 +1,45 @@
 ---
 name: context-efficient-workflow
-description: Keep context-heavy agent work focused by narrowing evidence, controlling tool output, and maintaining compact state across code, debugging, research, browser, and document tasks. Use when a task may involve large repositories, files, logs, command results, or a long-running investigation; do not invoke for simple requests that need no substantial inspection.
+description: Keep context-heavy agent work focused and verifiable by routing simple tasks lightly, retrieving only relevant evidence, and using explicit acceptance gates for risky multi-file work.
 license: MIT
 ---
 
 # Context-Efficient Workflow
 
-Reduce irrelevant context without reducing correctness, verification, or the requested scope. Optimize what is loaded and retained, not the quality of the result.
+Keep the smallest useful context while preserving scope and correctness. Route the task first; do not apply a heavy workflow to a small edit.
 
-## Start with the next decision
+## Route
 
-Before reading or running anything, identify:
+- **Small/local:** inspect the target and nearby tests, make the change, run the narrow check, and report it.
+- **Heavy/risky:** use the correctness loop below. This includes multi-file features, unfamiliar repositories, debugging, persistence, APIs, UI state, batch operations, and long investigations.
 
-- The outcome the user requested.
-- The next fact needed to make progress.
-- The smallest likely source of that fact.
+## Heavy-task correctness loop
 
-Prefer metadata, indexes, targeted searches, and relevant excerpts before full files or broad scans. Expand only when the current evidence cannot answer the next decision.
+1. Write a compact acceptance checklist and identify the baseline test or check.
+2. Inspect metadata and targeted symbols first. Expand only when evidence changes the next decision. Keep a working index of facts, sources, decisions, changes, checks, and unknowns.
+3. For API or stateful work, write a tiny contract matrix before coding: valid input, invalid input, no-op, repeated request, and bulk/partial input; record expected response, state change, and side-effect count for each.
+4. Run the baseline check when practical. Implement one vertical slice at a time; after each risky slice, run the narrowest relevant check.
+5. Run complete proportionate verification before claiming completion. Check side effects as well as return values: event/audit counts, idempotency, persistence, derived totals, and error-state behavior.
+6. If a check fails, stop compressing context. Investigate with focused evidence, fix or explicitly leave the failure unresolved, then rerun the check.
+7. Reconcile changed files against the checklist. State commands actually run, results, and unknowns in the final response.
 
-## Control evidence collection
+## Evidence controls
 
-- Search likely paths with specific identifiers before searching an entire workspace.
-- Inspect file names, sizes, schemas, headings, or row counts before loading large artifacts.
-- Read the relevant function, section, range, page, or time window first.
-- Constrain command output at its source with a narrower path, query, time range, or result limit.
-- When output is truncated or noisy, refine the query instead of repeating it unchanged.
-- Avoid re-reading unchanged material already represented accurately in the working summary.
+- Prefer file names, headings, schemas, targeted searches, and bounded excerpts before full artifacts.
+- Constrain output at the source; refine noisy or truncated commands instead of repeating them.
+- Do not reread unchanged material already captured accurately in the working index.
+- For genuinely large tasks, read [context-budget.md](references/context-budget.md) and use `scripts/context-budget.js` only when a measurable budget is useful.
 
-Broad inspection is appropriate when the task itself is repository-wide, the location is unknown, or focused evidence has failed. State why the broader pass is needed and avoid repeating it without new evidence.
+## Safe patch recovery
 
-## Preserve a compact working state
-
-After a meaningful discovery or large output, retain only:
-
-- Confirmed facts and their sources.
-- Relevant files, locations, commands, or artifacts.
-- Decisions and assumptions that affect the result.
-- Changes made and verification performed.
-- Remaining unknowns and the next useful action.
-
-For long tasks, refresh this state before changing direction or resuming after an interruption. Treat the summary as an index, not a substitute for reopening exact evidence when precision matters.
-
-## Adapt to the task
-
-### Code and debugging
-
-Begin with the reported behavior, error text, changed symbols, entry points, and nearby tests. Trace callers, configuration, dependencies, or broader architecture only when they can change the diagnosis or implementation. Do not skip regression tests, type checks, builds, or other proportionate verification to save context.
-
-### Documents and structured data
-
-Inspect structure before content: document headings, PDF pages, workbook sheets, table schemas, row counts, or data samples. Load only the sections or ranges needed for the requested operation, while checking cross-references or formulas when partial reading could produce an incorrect result.
-
-### Browser and interface work
-
-Capture the relevant page state, element, console message, or network request. Repeat screenshots or full-page inspection only after state changes or when visual context is itself the subject of the task.
-
-### Research and comparison
-
-Define the decision criteria before collecting sources. Prefer authoritative sources and extract only claims relevant to those criteria. Add sources when they improve coverage, recency, confidence, or perspective—not merely to increase the count.
+- Make one logical change per patch and avoid multiple operations targeting the same file in one patch.
+- If a patch fails, reread the target file and apply a smaller hunk based on its current contents; never retry the identical stale patch.
+- After a successful patch, inspect the changed section before editing that file again. If repeated patching fails, use a narrower edit strategy and record the recovery in the working index.
+- For API/state changes, use the [contract matrix](references/contract-matrix.md) as the minimum mutation checklist.
 
 ## Guardrails
 
-- Follow the user's requested language, detail level, and deliverable format.
-- Do not claim exact token, quota, cost, or latency savings unless they were measured.
-- Do not omit necessary reasoning, evidence, edge cases, or verification for brevity.
-- Do not silently narrow the user's requested scope; distinguish an efficient first pass from a completed task.
-- Ask for clarification only when the missing choice materially changes the result and cannot be inferred safely.
-- Keep user updates concise, but make the final result self-contained.
-
-Efficiency is successful when unnecessary input and repetition are reduced while the requested outcome remains complete and verifiable.
+- Never trade required tests, acceptance criteria, security checks, or user scope for a smaller context.
+- Do not claim exact token, cost, latency, or savings without measurement.
+- Do not silently narrow the task. Distinguish a fast first pass from a complete verified result.
+- Preserve user permissions and deliverable format.

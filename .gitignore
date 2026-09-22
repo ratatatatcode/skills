@@ -2,3 +2,4 @@
 benchmarks/**/results.md
 benchmarks/**/results.json
 benchmarks/multi-task/three-task-results.md
+latest-benchmarks
