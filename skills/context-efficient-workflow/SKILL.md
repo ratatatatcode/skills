@@ -17,7 +17,7 @@ Keep the smallest useful context while preserving scope and correctness. Route t
 
 1. Write a compact acceptance checklist and identify the baseline test or check.
 2. Inspect metadata and targeted symbols first. Expand only when evidence changes the next decision. Keep a working index of facts, sources, decisions, changes, checks, and unknowns.
-3. For API or stateful work, write a tiny contract matrix before coding: exact method/path, request fields, response keys/status, valid input, invalid input, no-op, repeated request, and bulk/partial input; record expected state change and side-effect count for each. Do not substitute synonymous response fields or ambiguous bulk semantics.
+3. For API or stateful work, write a tiny contract matrix before coding: valid input, invalid input, no-op, repeated request, and bulk/partial input; record expected response, state change, and side-effect count for each.
 4. Run the baseline check when practical. Implement one vertical slice at a time; after each risky slice, run the narrowest relevant check.
 5. Run complete proportionate verification before claiming completion. Check side effects as well as return values: event/audit counts, idempotency, persistence, derived totals, and error-state behavior.
 6. If a check fails, stop compressing context. Investigate with focused evidence, fix or explicitly leave the failure unresolved, then rerun the check.
