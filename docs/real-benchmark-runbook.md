@@ -1,6 +1,6 @@
 # Real Context-Efficiency Benchmark Runbook
 
-Use this runbook to compare a plain workflow with `context-efficient-workflow` using two real runs of the same Product Requirements task.
+Use this runbook to compare a plain workflow with `context-efficient-workflow` using independent runs of the same task. The workflow is expected to stay lightweight for simple work and to use acceptance/contract gates only for heavy or risky work.
 
 ## Keep the comparison fair
 
@@ -17,6 +17,8 @@ Run A is the baseline. Do not invoke `context-efficient-workflow` or another con
 Run B is the candidate. Invoke `$context-efficient-workflow` explicitly and use the same task prompt.
 
 Do not compare runs if the brief, model, available tools, or requested output changed materially. Record the difference as a limitation.
+
+For API or stateful implementation tasks, define exact method/path, request fields, response keys/statuses, no-op and repeated-request behavior, bulk semantics, and side-effect counts in the task packet before running the comparison. Do not keep those contracts only in a hidden acceptance suite: an agent cannot fairly be judged for missing an unstated field name.
 
 ## Use the same task
 
@@ -80,6 +82,8 @@ Review the report for:
 - Reduced repeated content.
 - Equal deliverable coverage and verification.
 - Any quality, completeness, or latency regression.
+- Whether patch conflicts, failed checks, or recovery loops occurred.
+- Whether the task contract was explicit enough to distinguish an implementation defect from an underspecified oracle.
 
 ## Report honestly
 

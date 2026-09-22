@@ -103,10 +103,12 @@ Documents an existing repository from verifiable evidence. It produces structure
 
 #### Context-Efficient Workflow
 
-A repository-owned, language-neutral workflow for keeping large or long-running agent tasks focused. It narrows evidence collection, controls tool output, preserves compact working state, and explicitly protects correctness and verification.
+A repository-owned, language-neutral workflow for keeping large or long-running agent tasks focused. It routes small tasks lightly, narrows evidence collection, controls tool output, preserves compact working state, and explicitly protects correctness and verification. Heavy API/stateful work can use the contract matrix and patch-recovery guidance; optional context-budget tooling is kept outside the default instruction path.
 
 - License: MIT.
 - [Source and documentation](skills/context-efficient-workflow/SKILL.md)
+- [Contract matrix](skills/context-efficient-workflow/references/contract-matrix.md)
+- [Context budget guidance](skills/context-efficient-workflow/references/context-budget.md)
 - Install:
 
   ```text
