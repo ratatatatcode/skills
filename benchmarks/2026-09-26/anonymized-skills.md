@@ -68,6 +68,28 @@ Each condition has five sessions per task across the two batches. These counts d
 | heavy | Skill D | 0 / 3 | 1 / 2 | 1 / 5 |
 | heavy | Skill E | 1 / 3 | 1 / 2 | 2 / 5 |
 
+## Conclusions by task
+
+### Small: dashboard overdue count
+
+Across both batches, the no-skill baseline had the highest observed full-task pass rate: 4/5 (80%), compared with 3/5 for Skill B and Skill C, 1/5 for context-efficient-workflow, Skill A, and Skill E, and 0/5 for Skill D. In the latest batch alone, Skill B passed both runs while the baseline passed one, showing that the ordering changed between batches. There is one acceptance check per run here, so full-task and individual-check pass rates are identical.
+
+For this small task, the combined results provide no evidence that adding a skill improved reliability over the baseline. Our context-efficient-workflow passed 1/5 runs overall and neither latest-batch run. In the latest batch it also used more input tokens and took longer than the baseline, although it used fewer output tokens. This observation is limited to the tested task and sessions.
+
+### Medium: site filtering and pagination
+
+Across both batches, the no-skill baseline, Skill C, and Skill D tied for the highest observed full-task pass rate at 2/5 (40%). Context-efficient-workflow, Skill A, and Skill E passed 1/5; Skill B passed 0/5. In the latest batch, the baseline, Skill C, Skill D, and Skill E each passed 4/6 individual checks and 1/2 complete tasks; the other conditions passed 2/6 checks and no complete tasks.
+
+No tested skill exceeded the baseline's combined full-task pass rate on this task. Our context-efficient-workflow used fewer input and output tokens and had a shorter median duration in the latest batch, but also passed fewer checks and complete tasks. The lower resource use therefore does not establish an efficiency improvement at equivalent quality. No condition demonstrated consistently reliable completion.
+
+### Heavy: full-stack dispatch workflow
+
+In the latest batch, context-efficient-workflow, Skill C, Skill D, and Skill E each passed 20/24 individual checks (83.3%) and 1/2 complete tasks. The baseline, Skill A, and Skill B each passed 16/24 checks (66.7%) and no complete tasks. All four conditions with more passing checks also used more input and output tokens and had longer median durations than the baseline.
+
+Across both batches, the baseline, context-efficient-workflow, Skill A, and Skill E tied at 2/5 full-task passes (40%); Skill C and Skill D passed 1/5, and Skill B passed 0/5. Our skill's latest-batch advantage therefore did not translate into a higher combined full-task pass rate than the baseline. The heavy-task results show a possible quality/resource tradeoff in the latest batch, but the small sample and changing outcomes do not establish a repeatable benefit or an overall winner.
+
+These conclusions describe unofficial local observations. Results may differ in future runs, and neither individual-check totals nor full-task passes establish production readiness.
+
 ## Latest-batch totals and interpretation
 
 | Condition | Full passes / runs | Checks passed / total | Check pass rate |
