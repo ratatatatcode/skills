@@ -3,3 +3,23 @@ benchmarks/**/results.md
 benchmarks/**/results.json
 benchmarks/multi-task/three-task-results.md
 latest-benchmarks
+
+# Local dependencies, caches, and execution artifacts.
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.cache/
+coverage/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Local credentials and environment overrides (keep example templates).
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
