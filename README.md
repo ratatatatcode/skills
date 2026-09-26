@@ -17,6 +17,7 @@ Repository-owned components identify their own license. The `context-efficient-w
 - [Skill Workflow Map](docs/skill-workflow-map.md) — how the skills connect across requirements, implementation, debugging, review, and commits.
 - [Context Workflow Benchmark](docs/benchmark-context-workflow.md) — compare recorded plain and context-efficient traces with token estimates and verification checks.
 - [Real Benchmark Runbook](docs/real-benchmark-runbook.md) — run a fair plain-versus-context-efficient comparison and capture real traces.
+- [Latest Unofficial Benchmark](benchmarks/2026-09-26/README.md) — observed results for our context-efficient-workflow skill versus a no-skill baseline; results may differ in future runs.
 - [Extended Benchmark Result](benchmarks/multi-task/six-task-results.md) — controlled comparison across requirements, debugging, review, full-stack, document/data, and browser tasks.
 - [Repository-Local Skills](docs/local-skills.md) — create and maintain project-specific skills under `.agents/skills/` without overwriting existing work.
 
@@ -104,6 +105,8 @@ Documents an existing repository from verifiable evidence. It produces structure
 #### Context-Efficient Workflow
 
 A repository-owned, language-neutral workflow for keeping large or long-running agent tasks focused. It routes small tasks lightly, narrows evidence collection, controls tool output, preserves compact working state, and explicitly protects correctness and verification. Heavy API/stateful work can use the contract matrix and patch-recovery guidance; optional context-budget tooling is kept outside the default instruction path.
+
+**Unofficial benchmark conclusion:** Across both September 26 batches, the no-skill baseline passed more full tasks on the small task (4/5 versus 1/5) and medium task (2/5 versus 1/5), and tied on the heavy task (2/5 each). The latest batch showed mixed token usage, with no consistent efficiency advantage for `context-efficient-workflow`. These limited results do not establish an overall benefit from adding the skill. This is an unofficial local benchmark; results may differ with another run, model, task, environment, or skill revision. See the [results and limitations](benchmarks/2026-09-26/README.md).
 
 - License: MIT.
 - [Source and documentation](skills/context-efficient-workflow/SKILL.md)
